@@ -1,6 +1,6 @@
 const express = require('express');
 const logger = require('./config/logger'); 
-const taskRoutes = require('./routes/index');
+const taskRoutes = require('./routes/tasksRoute');
 const cors = require('cors');
 const app = express();
 const port = 3001;
