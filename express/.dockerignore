@@ -1,0 +1,10 @@
+.git
+helm
+docs
+.gitignore
+Dockerfile
+Jenkinsfile
+sonar-project.properties
+CHANGELOG.md
+LICENSE.md
+README.md

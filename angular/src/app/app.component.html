@@ -1,0 +1,43 @@
+<div class="task-container">
+  <h1>Task List</h1>
+
+  <form (submit)="addTask()">
+    <input
+      [(ngModel)]="newTaskTitle"
+      name="title"
+      placeholder="Enter new task"
+      required
+      [class.invalid]="!newTaskTitle.trim() && isFilled"
+    />
+    <input
+      [(ngModel)]="newTaskDescription"
+      name="description"
+      placeholder="Enter task description"
+      required
+      [class.invalid]="!newTaskDescription.trim() && isFilled"
+    />
+    <button type="submit">Add Task</button>
+    <p *ngIf="!newTaskTitle.trim() && isFilled">Title cannot be empty</p>
+    <p *ngIf="!newTaskDescription.trim() && isFilled">
+      Description cannot be empty
+    </p>
+  </form>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>ID</th>
+    </tr>
+    <tr *ngFor="let task of tasks" [ngClass]="getStatusClass(task.status)">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.id }}</td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="loading" class="cssload-container">
+  <div class="cssload-speeding-wheel"></div>
+</div>
