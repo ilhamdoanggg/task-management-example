@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       this.loading = true;
       const response = await axios.get('http://localhost:3001/tasks');
       this.loading = false;
-      this.tasks = response.data.data;
+      this.tasks = response.data.data.tasks;
     } catch (error) {
       console.error('Error fetching tasks:', error);
     }
